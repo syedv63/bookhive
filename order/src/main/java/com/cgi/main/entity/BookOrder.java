@@ -1,56 +1,58 @@
 package com.cgi.main.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class BookOrder {
 
 	@Id
-	
-	private String orderid;
-	
-	private String bookid;
-	
-	private String cartid;
-	
-	private String customerid;
-	
-	private String payment;
-	
+	@Column(length=55,name="oid")
+	private String oid;
+	@Column(length=55,name="bid")
+	private String bid;
+	@Column(length=55,name="cid")
+	private String cid;
+	@Column(length=55,name="custid")
+	private String custid;
+	@Column(length=55,name="pmt")
+	private String pmt;
+	@Column(name="total")
 	private int total;
-	
+	@Column(name="qty")
 	private int qty;
-	
-	
-	public String getOrderid() {
-		return orderid;
+	@Column(length=55,name="st")
+	private String st;
+	public String getOid() {
+		return oid;
 	}
-	public void setOrderid(String orderid) {
-		this.orderid = orderid;
+	public void setOid(String oid) {
+		this.oid = oid;
 	}
-	public String getBookid() {
-		return bookid;
+	public String getBid() {
+		return bid;
 	}
-	public void setBid(String bookid) {
-		this.bookid = bookid;
+	public void setBid(String bid) {
+		this.bid = bid;
 	}
-	public String getCartid() {
-		return cartid;
+	public String getCid() {
+		return cid;
 	}
-	public void setCartid(String cartid) {
-		this.cartid = cartid;
+	public void setCid(String cid) {
+		this.cid = cid;
 	}
-	public String getCustomerid() {
-		return customerid;
+	public String getCustid() {
+		return custid;
 	}
-	public void setCustomerid(String customerid) {
-		this.customerid = customerid;
+	public void setCustid(String custid) {
+		this.custid = custid;
 	}
-	public String getPayment() {
-		return payment;
+	public String getPmt() {
+		return pmt;
 	}
-	public void setPayment(String payment) {
-		this.payment = payment;
+	public void setPmt(String pmt) {
+		this.pmt = pmt;
 	}
 	public int getTotal() {
 		return total;
@@ -64,19 +66,22 @@ public class BookOrder {
 	public void setQty(int qty) {
 		this.qty = qty;
 	}
-	
-	
-	
-	public BookOrder(String orderid, String bookid, String cartid, String customerid, String payment, int total, int qty) {
+	public String getSt() {
+		return st;
+	}
+	public void setSt(String st) {
+		this.st = st;
+	}
+	public BookOrder(String oid, String bid, String cid, String custid, String pmt, int total, int qty, String st) {
 		super();
-		this.orderid = orderid;
-		this.bookid = bookid;
-		this.cartid = cartid;
-		this.customerid = customerid;
-		this.payment = payment;
+		this.oid = oid;
+		this.bid = bid;
+		this.cid = cid;
+		this.custid = custid;
+		this.pmt = pmt;
 		this.total = total;
 		this.qty = qty;
-		
+		this.st = st;
 	}
 	public BookOrder() {
 		super();
@@ -84,8 +89,8 @@ public class BookOrder {
 	}
 	@Override
 	public String toString() {
-		return "Order [ordeid=" + orderid + ", bookid=" + bookid + ", cartid=" + cartid + ", customerid=" + customerid + ", payment=" + payment
-				+ ", total=" + total + ", qty=" + qty + ",]";
+		return "Order [oid=" + oid + ", bid=" + bid + ", cid=" + cid + ", custid=" + custid + ", pmt=" + pmt
+				+ ", total=" + total + ", qty=" + qty + ", st=" + st + "]";
 	}
 	
 	

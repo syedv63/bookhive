@@ -8,15 +8,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.cgi.main.entity.BookOrder;
 import com.cgi.main.service.OrderService;
-
+@RestController
+@RequestMapping("/api")
 public class OrderController {
-
+    
 	@Autowired
 	private OrderService orderService;
-	@PostMapping
+	@PostMapping("/orderadded")
 	public ResponseEntity<?> addOrder(@RequestBody BookOrder order) {
 		BookOrder newOrder=orderService.addOrder(order);
 		if(newOrder!=null)
@@ -24,7 +27,7 @@ public class OrderController {
 		return new ResponseEntity<String>("Order not added",HttpStatus.CONFLICT);
 	}
 
-	@GetMapping
+	@GetMapping("/getorder")
 	public ResponseEntity<?>  getOrder() {
 		List<BookOrder> orderList=orderService.getOrder();
 		if(orderList.size()>0)
